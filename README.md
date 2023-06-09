@@ -55,3 +55,35 @@
      => [start,stop] 범위사이의 값을 num개 생성, 기본 type은 float64, num 값을 지정하지 않으면 기본은 50
      => 기본적으로 stop값이 범위에 포함됨.  interval [`start`, `stop`].
         포함시키지 않을려면  endpoint=False 로 지정한다. Default is True.
+
+```벡터삭제```
+
+1. ndarray 삭제
+
+
+       문법:                      색인
+         arr = np.delete(arr, idx|fancy|slice, axis )
+       - 순방향, 역방향 모두가능
+       - 삭제된 새로운 배열을 반환 (in-place가 False), 원본이 유지됨
+       - axis=None 이면 flatten 적용됨. ==> 다차원이 1차원으로 만들어짐
+       - slice인 경우에는  np.s_[::2]  형식 사용한다.
+      
+2. 값으로 삭제
+
+        - np.where( (arr==5) | (arr==8)) 활용하여 일치하는 인덱스를 먼저 찾고 삭제한다.
+        - np.delete(arr, np.where())
+
+```벡터 추가 및 삽입```
+
+ 1. ndarray 추가
+
+        문법:
+        arr = np.append(arr, values, axis=None)
+        - 추가된 새로운 배열을 반환
+        - axis=None 이면 flatten 된후에 추가된다.
+
+ 2. ndarray 삽입
+ 
+        문법:                        색인
+         arr = np.insert(arr, idx|fancy|slice, value,  axis ).
+         - fancy 사용시 value와 shape가 일치해야 된다.
